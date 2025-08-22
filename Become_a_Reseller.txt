@@ -1,0 +1,29 @@
+function emailSend(){
+    var name = document.getElementById("name").value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('phone').value;
+    var message = document.getElementById('message').value;
+
+    var messageBody = "Name " + name +
+    "<br/> Email " + email + 
+    "<br/> Phone " + phone + 
+    "<br/> Phone " + phone;
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "rjvlicos.ccit@unp.edu.ph",
+        Password : "AA205D7ACAD48C4E876320BD0DB815F02842",
+        To : 'rickyjaylicos051601@gmail.com',
+        From : "rjvlicos.ccit@unp.edu.ph",
+        Subject : "This is the subject",
+        Body : messageBody
+    }).then(
+      message => {
+        if(message=='OK') {
+            swal("Successful!", "You clicked the button!", "success");
+        }
+        else {
+            swal("Error!", "You clicked the button!", "error");
+        }
+      }
+    );
+}
